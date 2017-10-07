@@ -9,7 +9,6 @@
 	}
 	else
 	{
-
 		echo "ERROR\n";
 		$_SESSION['loggued_on_usr'] = "";
 	}
