@@ -1,5 +1,56 @@
+.topmenu {
+	width: 90px;
+	height: 60px;
+	position: top;
+}
+
+.topnav {
+	background-color: black;
+	overflow: hidden;
+}
+
+.topnav a{
+	float: right;
+	margin-right: 70px;
+	display: block;
+	line-height: 100px;
+	color: silver;
+	padding:14px 16px;
+	height: 120px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 40px;
+}
+
+.topnav img{
+	float: right;
+	margin-right: -130px;
+	padding:14px 16px;
+	height: 100px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 40px;
+}
+
+.topnav b:hover {
+	background-color: gray;
+	color: black;
+}
+
+
+.topnav a:hover {
+	background-color: gray;
+	color: black;
+}
+
+body {
+	background-color: black;
+	background-image: url("http://s1.picswalls.com/wallpapers/2014/01/22/hq-black-wallpaper_052248_13.jpg");
+}
+
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: black;
+    text-decoration: none;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -15,7 +66,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: gray;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -35,5 +86,74 @@
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: gray;
 }
+
+.login {
+	position: absolute;
+	padding: 250px 18px;
+	left: 800px;
+}
+
+h1 {
+	color: white;
+}
+
+.grid h3 {
+	font-family: verdana;
+	color: white;
+}
+
+.lgbtn {
+	border: none;
+	font-size: 20px;
+	text-align: center;
+	padding: 5px 10px;
+	left: 100px;
+	top: 500px;
+	position: absolute;
+	border-radius: 5px;
+	
+}
+.crbtn {
+	border: none;
+	font-size: 20px;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px 10px;
+	right: 110px;
+	top: 500px;
+	position: absolute;
+}
+
+.grid {
+	text-align: center;
+	display: block;
+	padding: 100px 100px;
+	left: 10%;
+	top: 10px;
+}
+
+.grid img {
+	position: float;
+	width: 20%;
+	height: 20%;
+}
+
+.query{
+	font-color: white;
+}
+tr {
+	background-color:white;
+}
+td {
+	background-color:white;
+}
+.btn {
+	border: none;
+	font-size: 20px;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+

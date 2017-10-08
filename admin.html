@@ -34,42 +34,18 @@
 				<a href="create.html">CREATE AN ACCOUNT</a>
 				<a href="admin.html">ADMIN</a>
 			</div>
-
-
+		</div>
+		<div class="login">
+			<form action="login_admin.php" method="post">
+				<h1>Username:</h1>
+				<input type="text" name="login" value="">
+				<h1>Password:</h1>
+				<input type="password" name="passwd" value="">
+				<input class="lgbtn" type="submit" name='submit' value="OK">
+			</form>
 		</div>
 		<a href="#" ><img src="https://www.materialui.co/materialIcons/action/shopping_cart_grey_192x192.png" style="float:right;float:top;margin-right:5%;height:40px;"</img></a>
 	</div>
-	<div>
-	<br>
-					<?php
-	if ($_POST['submit'] == "OK" && $_POST['login'] != "" && $_POST['passwd'] != "")
-	{
-		$servername="127.0.0.1";
-		$username ="root";
-		$password = "g5nrqbcm";
-		$dbname = "cms_info_db";
-		$login = $_POST['login'];
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-		if ($conn == false)
-			echo "failed to connect";
-		$hash = hash(whirlpool, $_POST['passwd']);
-		$sql = "SELECT * FROM cms_info_db.users WHERE username = '$login'";
-		$query = mysqli_query($conn, $sql);
-		if (mysqli_num_rows($query) != 0)
-			echo "<br><h1>USER NAME ALREADY IN USE</h1>";
-		else
-		{
-			$sql = "INSERT INTO users(username, passwrd)
-			VALUES('$login', '$hash')";
-			mysqli_query($conn, $sql);
-			echo "<br><h1>SUCCESS</h1>";
-		}
-		}
-	else
-		echo "<br><h1>ERROR</h1>";
-?>
-</div>
 	<img src="http://s1.picswalls.com/wallpapers/2014/01/22/hq-black-wallpaper_052248_13.jpg" style="width:1904px;height:1000px;"</img>
 </body>
 </html>
-

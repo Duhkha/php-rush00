@@ -41,32 +41,21 @@
 	</div>
 	<div>
 	<br>
-					<?php
-	if ($_POST['submit'] == "OK" && $_POST['login'] != "" && $_POST['passwd'] != "")
+<?php
+	session_start();
+	include "auth_admin.php";
+	echo $login;
+	if (auth($_POST['login'], $_POST['passwd']) == true)
 	{
-		$servername="127.0.0.1";
-		$username ="root";
-		$password = "g5nrqbcm";
-		$dbname = "cms_info_db";
-		$login = $_POST['login'];
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-		if ($conn == false)
-			echo "failed to connect";
-		$hash = hash(whirlpool, $_POST['passwd']);
-		$sql = "SELECT * FROM cms_info_db.users WHERE username = '$login'";
-		$query = mysqli_query($conn, $sql);
-		if (mysqli_num_rows($query) != 0)
-			echo "<br><h1>USER NAME ALREADY IN USE</h1>";
-		else
-		{
-			$sql = "INSERT INTO users(username, passwrd)
-			VALUES('$login', '$hash')";
-			mysqli_query($conn, $sql);
-			echo "<br><h1>SUCCESS</h1>";
-		}
-		}
+		echo "WTF";
+		$_SESSION['loggued_on_usr'] = $_POST['login'];
+		header("Location: manage.php");
+	}
 	else
-		echo "<br><h1>ERROR</h1>";
+	{
+		echo "<h1>FAILED TO LOG IN</h1>";
+		$_SESSION['loggued_on_usr'] = "";
+	}
 ?>
 </div>
 	<img src="http://s1.picswalls.com/wallpapers/2014/01/22/hq-black-wallpaper_052248_13.jpg" style="width:1904px;height:1000px;"</img>

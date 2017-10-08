@@ -10,14 +10,13 @@ function auth($login, $passwd)
 		$dbname = "cms_info_db";
 		$conn = mysqli_connect($servername, $username, $password);
 		$hash = hash(whirlpool, $passwd);
-		$sql = "SELECT * FROM cms_info_db.users WHERE username = '$login'";
+		$sql = "SELECT * FROM cms_info_db.admins WHERE username = '$login'";
 		$query = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($query) == 0)
 			return false;
 		$row = mysqli_fetch_row($query);
 		if ($row[2] != $hash)
 		{
-			echo $row[2];
 			echo "WRONG PASSWORD".$row[0];
 			return false;
 		}

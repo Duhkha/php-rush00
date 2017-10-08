@@ -2,6 +2,23 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<?php
+	//		include "categories.php";
+	//	start_session();
+	//	$product = array();
+	//	$product[] = array(name =>"board1", price=>1000);
+	///	$product[] = array(name =>"board2", price=>2000);
+	//	if (empty($_SESSION['cart']))
+	//	{
+		//	$_SESSION['cart'] = array();
+			//echo "empty sess";
+		//}
+	//	if ($_POST['add'] >= 0)
+	//	{
+	//		$_SESSION['cart'][] = $product[$_POST['add']];
+	//		print_r($_SESSION['cart']);
+	//	}
+		?>
 		<title>SURFS-UP</title>
 	</head>
 	<body>
@@ -35,18 +52,20 @@
 				<a href="admin.html">ADMIN</a>
 			</div>
 		</div>
-		<div class="login">
-			<form action="create.php" method="post">
-				<h1>Username:</h1>
-				<input type="text" name="login" value="">
-				<h1>Password:</h1>
-				<input type="password" name="passwd" value="">
-				<input class="crbtn" type="submit" name='submit' value="OK">
-			</form>
-		</div>
-		<a href="#" ><img src="https://www.materialui.co/materialIcons/action/shopping_cart_grey_192x192.png" style="float:right;float:top;margin-right:5%;height:40px;"</img></a>
+		<a href=" #" ><img src="https://www.materialui.co/materialIcons/action/shopping_cart_grey_192x192.png" style="float:right;margin-right:5%;height:40px;float:top;"</img></a>
 	</div>
-	<img src="http://s1.picswalls.com/wallpapers/2014/01/22/hq-black-wallpaper_052248_13.jpg" style="width:1904px;height:1000px;"</img>
+	<div class="product">
+	<form action="product.php" method="post">
+	<?php
+
+		foreach($product as $k=>$item)
+		{
+				$image = 'img/'.$item['name'].'.png';
+				echo "<div class=grid><img src=$image </img></a><h3>".$item['name']." R".$item['price']."</h3><br>";
+				echo "<button name='add' value=".$k." type='submit'>add</button><br></div>";
+		}
+	?>
+</form>
+</div>
 </body>
 </html>
-

@@ -9,7 +9,8 @@
 		echo "Connection failed: " . mysqli_connect_error();
 		exit();
 	}
-	$cat = "SELECT * FROM categories";
+	$curr = $_GET['cat'];
+	$cat = "SELECT * FROM categories WHERE category = $curr";
 	$prod = "SELECT * FROM products";
 	$catq = mysqli_query($conn, $cat);
 	$prodq = mysqli_query($conn, $prod);
@@ -21,8 +22,7 @@
 			{
 				if ($catarr['ID'] == $prodarr['ID'])
 				{
-					$product[] = array(name =>$prodarr['ITEM'], 
-					price=>$prodarr['PRICE']);
+					$product[] = array(name =>$prodarr['ITEM'], price=>$prodarr['PRICE']);
 				}
 			}
 		}
